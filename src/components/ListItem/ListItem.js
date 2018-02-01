@@ -4,10 +4,10 @@ import Header from '../Header/Header';
 
 const ListItem = props => {
     return (
-        <div>
-            <Header/>
-            <p>List Item</p>
-        </div>
+        <li>
+            <span>{props.title}</span>
+            <span></span>
+        </li>
     );
 };
 
