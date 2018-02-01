@@ -2,10 +2,16 @@
     background: #0F1E3B;
     color: #fff;
     padding: 25px 20px;
-    font-size: 0.8rem;
-    font-family: OpenSans,sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .sayer__title {
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.sayer__subtitle {
+    font-size: 0.7rem;
+    font-weight: 300;
 }

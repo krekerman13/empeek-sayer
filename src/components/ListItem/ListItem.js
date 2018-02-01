@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 const ListItem = props => {
     return (
         <div>
-            <Header />
+            <Header/>
             <p>List Item</p>
         </div>
     );

@@ -5,7 +5,6 @@ const List = props => {
     return (
         <div>
             <Header />
-            <p>List</p>
         </div>
     );
 };
