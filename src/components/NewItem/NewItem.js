@@ -36,10 +36,6 @@ export default class NewItem extends Component {
         });
     }
 
-    componentWillUpdate(prevProps, prevState) {
-        ls.set('items', this.state.items);
-    }
-
     addItem = () => {
         let items = this.state.items;
         let newItem = {
@@ -51,6 +47,9 @@ export default class NewItem extends Component {
         items.unshift(newItem);
         this.setState({
             items: items
+        }, ()=> {
+            ls.set('items', this.state.items);
+            this.props.history.push('/');
         });
     };
 
