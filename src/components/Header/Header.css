@@ -1,0 +1,11 @@
+.sayer__header {
+    background: #0F1E3B;
+    color: #fff;
+    padding: 25px 20px;
+    font-size: 0.8rem;
+    font-family: OpenSans,sans-serif;
+}
+
+.sayer__title {
+    margin-bottom: 5px;
+}
