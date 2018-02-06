@@ -8,7 +8,7 @@ import ls from '../../service/localStorageService';
 import _ from 'lodash';
 export default class List extends Component {
     state = {
-        items: ls.get('items')
+        items: ls.get('items') || []
     }
 
     deleteItem = (id)=> {
