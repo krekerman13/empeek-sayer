@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import ls from '../../service/localStorageService';
+import FA from 'react-fontawesome';
+
+import './NewItem.css';
 
 export default class NewItem extends Component {
     state = {
@@ -41,16 +44,19 @@ export default class NewItem extends Component {
         let newItem = {
             id: Date.now(),
             title: this.state.titleInput,
-            comments: [],
+            comments: []
         };
 
         items.unshift(newItem);
-        this.setState({
-            items: items
-        }, ()=> {
-            ls.set('items', this.state.items);
-            this.props.history.push('/');
-        });
+        this.setState(
+            {
+                items: items
+            },
+            () => {
+                ls.set('items', this.state.items);
+                this.props.history.push('/');
+            }
+        );
     };
 
     render() {
@@ -59,18 +65,21 @@ export default class NewItem extends Component {
                 <Header backButton={true} title="Create new Item" />
                 <div className="input-block">
                     <input
+                        className={`input-block__text-input ${this.state.titleValid ? '' : 'invalid'}`}
                         type="text"
                         ref="item-title-input"
-                        placeholder="Add new item..."
+                        placeholder="New item tile..."
                         onChange={this.titleInputHandler}
                         value={this.state.titleInput}
                         ref={node => (this._titleInput = node)}
                     />
                     <button
                         disabled={!this.state.titleValid}
-                        className="addNewItem"
+                        className="button-add"
                         onClick={this.addItem}
-                    />
+                    >
+                        <FA name="angle-right" />
+                    </button>
                 </div>
             </div>
         );

@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Header.css';
+import FA from 'react-fontawesome';
 
 const Header = (props, context) => {
     const isBackButtonExist = props.backButton;
-    const backButtonHandle = (event)=> {
-
-    }
+    const backButtonHandle = event => {};
 
     return (
         <header className="sayer__header">
@@ -18,11 +17,14 @@ const Header = (props, context) => {
                     </span>
                 </div>
             ) : (
-                <div className='sayer__header-flex'>
-                    <button className='button-back' onClick={context.router.history.goBack}>
-                        Back
+                <div className="sayer__header-flex">
+                    <button
+                        className="button-back"
+                        onClick={context.router.history.goBack}
+                    >
+                        <FA name="long-arrow-left" />
                     </button>
-                    <span className='page-title'>{props.title}</span>
+                    <span className="page-title">{props.title}</span>
                 </div>
             )}
         </header>
@@ -31,8 +33,6 @@ const Header = (props, context) => {
 
 Header.contextTypes = {
     router: PropTypes.object.isRequired
-}
-
-
+};
 
 export default Header;
