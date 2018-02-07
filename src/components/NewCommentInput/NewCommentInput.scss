@@ -14,6 +14,8 @@
         border: 1px solid #cccccc;
         border-radius: 5px;
         padding: 0 10px;
+        border-radius: 0;
+        box-shadow: 0;
 
         &:focus {
             &.invalid {
