@@ -1,16 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import FA from 'react-fontawesome';
+import './Comment.css';
+
 const Comment = (props) => {
+
+    const deleteComment = ()=> {
+        console.log(props);
+        props.deleteComment(props.index);
+    }
+
     return (
-        <div>
+        <li className='comment'>
             <div className='comment-color'>
-                color
+
             </div>
             <div className='comment-title'>
                 {props.title}
             </div>
-        </div>
+            <div className='comment-delete'>
+                <FA name='times' onClick={deleteComment} />
+            </div>
+        </li>
     )
 }
 

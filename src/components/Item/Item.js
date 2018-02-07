@@ -19,16 +19,24 @@ export default class Item extends React.Component {
         items[itemIndex].comments.push(this.state.newComment);
 
         this.setState({
-            items
+            items,
+            newComment: {title :''},
         }, ls.set('items', items))
     };
+
+    deleteComment = (comment) => {
+        let items = this.state.items;
+        const itemIndex = _.findIndex(items, (el)=> el.id == this.props.match.params.id)
+        items[itemIndex].comments.splice(comment, 1);
+        this.setState({
+            items,
+        }, ls.set('items', items))
+    }
 
     inputHandleChange = (e) => {
         this.setState({
             newComment: {title :e.target.value},
         })
-
-        console.log(this.state.newComment);
     }
 
     render() {
@@ -37,9 +45,9 @@ export default class Item extends React.Component {
         )[0];
 
         return (
-            <div>
+            <div className='container'>
                 <Header backButton={true} title={item.title} />
-                <CommentList comments={item.comments} />
+                <CommentList itemIndex={item.id} comments={item.comments} onDelete={this.deleteComment} />
                 <NewCommentInput
                     addComment={this.addComment}
                     comment={this.state.newComment.title}

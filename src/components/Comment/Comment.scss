@@ -1,0 +1,54 @@
+.comment {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    padding-bottom: 40px;
+    padding-top: 25px;
+    position: relative;
+
+    &:not(:first-child) {
+        border-top: 1px solid #ccc;
+        padding-top: 10px;
+    }
+
+    &-color {
+        width: 50px;
+        height: 50px;
+        margin-right: 25px;
+        background: #313464;
+    }
+
+    &-title {
+        width: 80%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        @media screen and (max-width: 520px) {
+            width: 70%;
+        }
+    }
+
+    &:nth-child(even) {
+        .comment-color {
+            background: #af7d93;
+        }
+    }
+
+    &:hover {
+        .comment-delete {
+            display: block;
+        }
+    }
+
+    &-delete {
+        position: absolute;
+        display: none;
+        right: 5px;
+        cursor: pointer;
+        color: #bd3257;
+
+        @media screen and (max-width: 520px) {
+            display: block;
+        }
+    }
+}
