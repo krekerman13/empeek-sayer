@@ -19,6 +19,10 @@ export default class NewCommentInput extends Component {
 
     addComment = () => {
         this.props.addComment(this.state.newComment);
+        this.setState({
+            newComment: {title: ''},
+            isValid: false
+        })
     }
 
 
@@ -35,7 +39,7 @@ export default class NewCommentInput extends Component {
                 <button
                     disabled={!this.state.isValid}
                     className="button-add"
-                    onClick={this.props.addComment}
+                    onClick={this.addComment}
                 >
                     <FA name="angle-right" />
                 </button>

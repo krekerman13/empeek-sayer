@@ -15,29 +15,43 @@ export default class Item extends React.Component {
 
     addComment = () => {
         let items = this.state.items;
-        const itemIndex = _.findIndex(items, (el)=> el.id == this.props.match.params.id)
+        const itemIndex = _.findIndex(
+            items,
+            el => el.id == this.props.match.params.id
+        );
         items[itemIndex].comments.push(this.state.newComment);
 
-        this.setState({
-            items,
-            newComment: {title :''},
-        }, ls.set('items', items))
+        this.setState(
+            {
+                items,
+                newComment: { title: '' }
+            },
+            ls.set('items', items)
+        );
     };
 
-    deleteComment = (comment) => {
+    deleteComment = comment => {
         let items = this.state.items;
-        const itemIndex = _.findIndex(items, (el)=> el.id == this.props.match.params.id)
-        items[itemIndex].comments.splice(comment, 1);
-        this.setState({
+        const itemIndex = _.findIndex(
             items,
-        }, ls.set('items', items))
-    }
+            el => el.id == this.props.match.params.id
+        );
+        items[itemIndex].comments.splice(comment, 1);
+        this.setState(
+            {
+                items
+            },
+            ls.set('items', items)
+        );
+    };
 
-    inputHandleChange = (e) => {
+    inputHandleChange = e => {
         this.setState({
-            newComment: {title :e.target.value},
-        })
-    }
+            newComment: { title: e.target.value }
+        });
+
+        console.log(this.state.newComment);
+    };
 
     render() {
         const item = this.state.items.filter(
@@ -45,9 +59,13 @@ export default class Item extends React.Component {
         )[0];
 
         return (
-            <div className='container'>
+            <div className="container">
                 <Header backButton={true} title={item.title} />
-                <CommentList itemIndex={item.id} comments={item.comments} onDelete={this.deleteComment} />
+                <CommentList
+                    itemIndex={item.id}
+                    comments={item.comments}
+                    onDelete={this.deleteComment}
+                />
                 <NewCommentInput
                     addComment={this.addComment}
                     comment={this.state.newComment.title}

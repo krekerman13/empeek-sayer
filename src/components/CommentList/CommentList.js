@@ -11,7 +11,7 @@ const CommentList = props => {
 
 
     const list = props.comments.map((item,index) =>
-        <Comment key={index} title={item.title} deleteComment={props.onDelete} />
+        <Comment key={index} index={index} title={item.title} deleteComment={props.onDelete} />
     );
     const message = <li>Comment list is empty. You can add your first comment below</li>
 

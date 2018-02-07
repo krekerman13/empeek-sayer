@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import ListItem from '../ListItem/ListItem';
+import FA from 'react-fontawesome';
 
 import ls from '../../service/localStorageService';
 import _ from 'lodash';
+
+import './List.css';
+
 export default class List extends Component {
     state = {
         items: ls.get('items') || []
@@ -33,11 +37,11 @@ export default class List extends Component {
                 />
         ));
         return (
-            <div>
+            <div className='container main-page'>
                 <Header />
-                <ul>{list}</ul>
+                <ul className='main-page__list'>{list}</ul>
                 <Link to={`/items/new`}>
-                    <button>New</button>
+                    <button className='main-page__add-button'><FA name='plus'></FA></button>
                 </Link>
             </div>
         );
