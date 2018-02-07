@@ -59,6 +59,12 @@ export default class NewItem extends Component {
         );
     };
 
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter' && this.state.titleValid) {
+            this.addItem();
+        }
+    }
+
     render() {
         return (
             <div>
@@ -69,6 +75,7 @@ export default class NewItem extends Component {
                         type="text"
                         ref="item-title-input"
                         placeholder="New item tile..."
+                        onKeyPress={this.handleKeyPress}
                         onChange={this.titleInputHandler}
                         value={this.state.titleInput}
                         ref={node => (this._titleInput = node)}

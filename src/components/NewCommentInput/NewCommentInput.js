@@ -25,6 +25,11 @@ export default class NewCommentInput extends Component {
         })
     }
 
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter' && this.state.isValid) {
+            this.addComment();
+        }
+    }
 
     render() {
         return (
@@ -34,6 +39,7 @@ export default class NewCommentInput extends Component {
                     value={this.state.newComment.title}
                     onChange={this.handleChange}
                     placeholder="New comment goes here.."
+                    onKeyPress={this.handleKeyPress}
                     className={`${!this.state.isValid ? 'invalid' : ''}`}
                 />
                 <button
