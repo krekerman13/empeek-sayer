@@ -15,10 +15,12 @@ const ListItem = props => {
 
     const swipingLeft = (e, absX) => {
         addButton.className = 'list-item__delete-button swiped';
+        console.log(e, absX);
     };
 
     const swipingRight = (e, absX) => {
         addButton.className = 'list-item__delete-button';
+        console.log(e, absX);
     };
 
     return (

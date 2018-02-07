@@ -48,7 +48,9 @@
 
     &:hover {
         .list-item__delete-button {
-            display: flex;
+            @media screen and (min-width: 520px){
+                display: flex;
+            }
         }
     }
 
